@@ -22,13 +22,13 @@ glfw.set_window_pos(window, 600, 200)
 # make the context current
 glfw.make_context_current(window)
 
-vertices = [-0.5, -0.5, 0.0,
-             0.5, -0.5, 0.0,
-             0.0,  0.5, 0.9]
+vertices = [-0.1, -0.5, 0.0,
+             0.5, -0.9, 0.0,
+             0.0,  0.001, 0.1]
 
-colors = [1.0, 0.0, 0.0,
-          0.0, 1.0, 0.0,
-          0.0, 0.0, 1.0]
+colors = [0.3, 0.0, 0.0,
+          0.0, 0.2, 0.0,
+          0.0, 0.0, 0.1]
 
 vertices = np.array(vertices, dtype=np.float32)
 colors = np.array(colors, dtype=np.float32)
@@ -50,9 +50,9 @@ while not glfw.window_should_close(window):
     ct = glfw.get_time()  # returns the elapsed time, since init was called
 
     glLoadIdentity()
-    glScale((sin(ct)), abs(sin(ct)), 1)
-    glRotatef(sin(ct) * 45, 0, 0, 1)
-    glTranslatef(sin(ct),  cos(ct), 0)
+    glScale((cos(ct)), abs(sin(ct)), 1)
+    glRotatef(sin(ct) * 3, 0, 0, 1)
+    glTranslatef(sin(ct),  sin(ct), 0)
 
     glDrawArrays(GL_TRIANGLES, 0, 3)
 
